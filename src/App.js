@@ -1,17 +1,18 @@
 
+import { useContext } from 'react';
 import './App.css';
 import Body from './components/Body';
 import Navbar from './components/Navbar';
-import { CartProvider } from './Context/CartContext';
+import { ThemeContext } from './Context/ThemeContext';
+
 
 function App() {
+  const {isLight}=useContext(ThemeContext)
   return (
-    <>
-    <CartProvider>
+    <div className={`App ${isLight?'light':'dark'}`}>
     <Navbar/>
     <Body/>
-    </CartProvider>
-    </>
+    </div>
   );
 }
 
